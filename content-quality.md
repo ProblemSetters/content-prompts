@@ -22,44 +22,7 @@ Analyze the question using the evaluation criteria below and generate a plain te
 
 Evaluate against these standards:
 
-#### Structure & Readability
-- ✅ **GOOD**: Business context (3-4 lines) → Product Requirements (bullets) → Technical Considerations (bullets)
-- ✅ **GOOD**: Uses small paragraphs and bullet points for easy scanning and comprehension
-- ✅ **GOOD**: Well-formatted with clear sections and whitespace
-- ❌ **POOR**: Heavily bloated with large paragraphs that make it unreadable
-- ❌ **POOR**: Wall of text without proper formatting or bullet points
-- ❌ **POOR**: Unstructured content that is difficult to parse
-
-#### Problem Scope
-- ✅ **GOOD**: Broad, open-ended problem allowing multiple solution paths
-- ❌ **POOR**: Narrow, prescriptive instructions with single solution path
-
-#### Level of Hand-Holding
-- ✅ **GOOD**: Product Manager style with clear expectations ("what is expected", "what do we need") without prescribing technical implementation
-- ✅ **GOOD**: Describes desired outcomes and business requirements
-- ❌ **POOR**: Guides candidates on literal technical implementation (e.g., "use useState hook", "create a function called X", "implement using pattern Y")
-- ❌ **POOR**: Contains detailed step-by-step technical instructions
-
-**Note:** Clear product-level expectations are acceptable and even encouraged. The violation occurs when the problem statement crosses into technical implementation guidance.
-
-#### Writing Style
-- ✅ **GOOD**: Product Manager style - describes what needs to be achieved from a product/business perspective
-- ❌ **POOR**: Engineering style - describes how to implement technically
-
-#### Requirements Design
-- ✅ **GOOD**: Contains "good-to-have" requirements alongside core requirements
-- ❌ **POOR**: Only mandatory requirements with no optional enhancements
-
-#### Real-World Alignment
-- ✅ **GOOD**: Reflects actual product development scenarios
-- ❌ **POOR**: Artificial, academic-style problems
-
-**Scoring Guide:**
-- **5/5**: Perfect structure with excellent formatting (small paragraphs, bullet points), PM-style, open-ended, clear expectations without technical implementation guidance, includes optional requirements
-- **4/5**: Good structure and formatting, mostly PM-style, minor technical hand-holding present
-- **3/5**: Acceptable but has formatting issues (some bloated paragraphs), structural issues, or moderate technical hand-holding
-- **2/5**: Poor formatting (heavily bloated paragraphs), poor structure, engineering-style, or significant technical hand-holding
-- **1/5**: Unreadable due to formatting, unstructured, overly prescriptive with technical details, or fails multiple criteria
+{{IMPORT:guidelines/problem-statement.md}}
 
 **Required in your report:**
 - Score with justification (in context of this specific problem statement)
@@ -110,41 +73,7 @@ Evaluate whether the problem statement has adequate scope in terms of concept va
 
 Evaluate the **unit test cases** that are relevant to the given problem statement. **Note:** Ignore any test files in the base code that are not related to the problem statement being evaluated.
 
-#### Scenario Coverage
-- ✅ **GOOD**: Covers happy paths, edge cases, boundary conditions, and error scenarios
-- ✅ **GOOD**: Tests input validation and invalid data handling
-- ✅ **GOOD**: Tests for expected business logic outcomes
-- ❌ **POOR**: Only tests happy path scenarios
-- ❌ **POOR**: Missing critical edge cases or error conditions
-
-#### Test Quality & Best Practices
-- ✅ Clear, descriptive test names that explain what is being tested
-- ✅ Tests are isolated and independent (no shared state between tests)
-- ✅ Proper use of test setup/teardown (beforeEach, afterEach, etc.)
-- ✅ Uses appropriate assertions and matchers
-- ✅ Tests one thing at a time (single responsibility per test)
-- ✅ Mock/stub external dependencies appropriately
-- ❌ **POOR**: Generic or unclear test names
-- ❌ **POOR**: Tests have dependencies on each other or shared state
-- ❌ **POOR**: Overly complex tests that test multiple things
-
-#### Test Organization
-- ✅ **GOOD**: Well-structured test suites with logical grouping (describe/context blocks)
-- ✅ **GOOD**: Test files are properly organized and named
-- ❌ **POOR**: Disorganized tests without clear structure
-
-#### Completeness
-- ✅ **GOOD**: Adequate number of test cases for the problem complexity
-- ✅ **GOOD**: Tests align with problem statement requirements
-- ❌ **POOR**: Insufficient tests for the stated requirements
-- ❌ **POOR**: Tests don't match the problem statement
-
-**Scoring Guide:**
-- **5/5**: Comprehensive unit tests covering all scenarios with excellent best practices
-- **4/5**: Good test coverage with minor gaps in scenarios or best practices
-- **3/5**: Basic test coverage but missing important scenarios or has quality issues
-- **2/5**: Minimal tests with poor coverage or significant quality problems
-- **1/5**: No relevant tests or completely inadequate test suite
+{{IMPORT:guidelines/test-cases.md}}
 
 **Required in your report:**
 - Score with justification (in context of this specific problem statement)
@@ -159,35 +88,7 @@ Evaluate the **unit test cases** that are relevant to the given problem statemen
 
 Evaluate against the recommended structure:
 
-#### Required Structure
-**Part 1: Ideal Solution**
-- ✅ **MUST HAVE**: Code snippets demonstrating correct solution approach without bugs
-- ✅ **ACCEPTABLE**: Can include partial code with key snippets (doesn't need to be complete end-to-end code)
-- ✅ Shows best practices and optimal approach for the critical parts
-- ❌ **POOR**: Has bugs, shows suboptimal patterns, or missing critical code snippets
-
-**Part 2: Evaluation Criteria**
-- ✅ **MUST HAVE**: Clear "Bare Minimum Criteria" section
-- ✅ **MUST HAVE**: Clear "Good to Have Criteria" section
-- ✅ Criteria are relevant and aligned with problem requirements
-- ❌ **POOR**: Missing sections, vague criteria, or misaligned with problem
-
-**Part 3: Follow-Up Questions**
-- ✅ **MUST HAVE**: "Recommended Follow-ups" section
-- ✅ Follow-ups test deeper understanding or extensions
-- ❌ **POOR**: Missing or generic follow-ups
-
-#### Content Quality
-- ✅ Provides clear guidance for fair evaluation
-- ✅ Helps interviewers assess both functional and non-functional aspects
-- ❌ **POOR**: Vague, incomplete, or inconsistent with problem statement
-
-**Scoring Guide:**
-- **5/5**: Perfect structure (all 3 parts), correct ideal solution with key code snippets, relevant criteria
-- **4/5**: Has all parts with minor issues in code snippets, completeness, or relevance
-- **3/5**: Missing one section or has significant quality issues
-- **2/5**: Missing multiple sections or poor quality throughout
-- **1/5**: Does not follow structure or provides inadequate guidance
+{{IMPORT:guidelines/interviewer-guidelines.md}}
 
 **Required in your report:**
 - Score with justification (in context of this specific problem statement)
@@ -379,3 +280,4 @@ Before you output the report, ensure:
 - [ ] You've maintained a critical, not complimentary, tone throughout
 
 Generate the complete plain text report now.
+
