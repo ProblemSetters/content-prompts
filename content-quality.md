@@ -48,11 +48,48 @@ Analyze the question using the **checklist-based scoring system** below. Each ca
 | 3 | **Requirements Section Present** | Has a clearly labeled Product Requirements section | ✓/✗ |
 | 4 | **Bullet Point Format** | Requirements use bullet points (`<ul>`/`<li>`), not paragraphs | ✓/✗ |
 | 5 | **Technical Reference Note** | Includes note pointing to `TECHNICAL_CONSIDERATIONS.md` | ✓/✗ |
-| 6 | **PM-Style Voice** | Describes outcomes/what, not implementation/how | ✓/✗ |
-| 7 | **No Technical Hand-Holding** | No function names, hooks, patterns, or implementation steps prescribed | ✓/✗ |
+| 6 | **PM-Style Voice** | Describes user outcomes only (see FAIL triggers below) | ✓/✗ |
+| 7 | **No Technical Hand-Holding** | Zero implementation details present (see FAIL triggers below) | ✓/✗ |
 | 8 | **Open-Ended Scope** | Multiple valid solution approaches are possible | ✓/✗ |
 | 9 | **Good-to-Have Requirements** | Contains optional/stretch requirements beyond core | ✓/✗ |
 | 10 | **HTML Formatting** | Correct wrapper div, style tag present, semantic tags used | ✓/✗ |
+
+---
+
+#### ⚠️ STRICT EVALUATION: Checkpoints #6 and #7
+
+These checkpoints use **AUTOMATIC FAIL** triggers. Scan the ENTIRE problem statement for violations. The presence of **ANY ONE** violation = FAIL.
+
+**Checkpoint #6 (PM-Style Voice) - FAIL if ANY of these are found:**
+
+| Violation Type | What to Look For | Example Violations |
+|----------------|------------------|-------------------|
+| Conditional Logic | "When X is true/false", "If X then Y" | "When isFlipped is true, show answer" |
+| Boolean States | Describing true/false behavior | "When false, '' is appended" |
+| Implementation Steps | Numbered steps or sequential instructions | "Step 1: Update X, Step 2: Add Y" |
+
+**Checkpoint #7 (No Technical Hand-Holding) - FAIL if ANY of these are found:**
+
+| Violation Type | What to Look For | Example Violations |
+|----------------|------------------|-------------------|
+| Variable Names | camelCase identifiers | `isFlipped`, `isLoading`, `handleClick`, `userData` |
+| Hook Names | React/framework hooks | `useState`, `useEffect`, `useMemo`, `useCallback` |
+| CSS Class Names | Specific classes to use | "append `flipped` to className", "add class `active`" |
+| File Paths | Where to write code | "in FlashCard/index.tsx", "modify src/components/X.ts" |
+| Function Names | Functions to create/call | "create handleSubmit", "call fetchData()" |
+| Type Definitions | Interface/type structures | "Create type with: id (number), name (string)" |
+| Component Names | Components to create/modify | "implement in FlashCard.tsx and FlashCardDeck.tsx" |
+| DOM Instructions | How to manipulate DOM | "append X to div", "update innerHTML" |
+| Data Structures | What structures to use | "store in array", "use Map", "object with keys X, Y" |
+| String Literals | Exact strings to display | "show 'Error' message", "display 'Loading...'" |
+
+**How to Evaluate:**
+1. Read the ENTIRE problem statement
+2. Search for ANY violation from the tables above
+3. If **even ONE violation** is found → that checkpoint FAILS
+4. Document the specific violation(s) found
+
+---
 
 **Score Calculation:**
 ```
@@ -230,11 +267,24 @@ CHECKPOINT EVALUATION:
   3   Requirements Section Present    [✓/✗]    [Brief evidence]
   4   Bullet Point Format             [✓/✗]    [Uses <ul>/<li> or paragraphs]
   5   Technical Reference Note        [✓/✗]    [Present/Missing]
-  6   PM-Style Voice                  [✓/✗]    [Brief evidence]
-  7   No Technical Hand-Holding       [✓/✗]    [Quote violation if any]
+  6   PM-Style Voice                  [✓/✗]    [PASS: No logic found / FAIL: Found X violations]
+  7   No Technical Hand-Holding       [✓/✗]    [PASS: Clean / FAIL: Found X violations]
   8   Open-Ended Scope                [✓/✗]    [Brief evidence]
   9   Good-to-Have Requirements       [✓/✗]    [Present/Missing]
   10  HTML Formatting                 [✓/✗]    [Brief evidence]
+
+⚠️ VIOLATIONS FOUND (Checkpoints #6 and #7):
+  If either checkpoint #6 or #7 FAILED, list ALL violations here:
+  
+  #6 PM-Style Voice Violations:
+    • [Quote: "When isFlipped is true..."] → Conditional logic
+    • [Quote: "Step 1: Update X..."] → Implementation steps
+  
+  #7 Technical Hand-Holding Violations:
+    • [Quote: "isFlipped"] → Variable name prescribed
+    • [Quote: "in FlashCard/index.tsx"] → File path prescribed
+    • [Quote: "useState"] → Hook name prescribed
+    • [Quote: "append `flipped` to className"] → CSS class prescribed
 
 FAILED CHECKPOINTS DETAIL:
   • [#X - Checkpoint Name]: [Detailed explanation with quotes]

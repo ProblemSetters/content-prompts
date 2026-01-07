@@ -6,9 +6,9 @@ Standards for creating and evaluating problem statements in coding assessments.
 
 ## Core Principles
 
-### 1. Product Manager Voice
+### 1. Product Manager Voice (STRICT)
 
-Write as if it comes from a Product Manager – clear, business-focused, realistic.
+Write as if it comes from a Product Manager – clear, business-focused, realistic. This checkpoint is **STRICT**: the presence of **ANY** technical implementation detail is an automatic FAIL.
 
 | ✅ GOOD | ❌ POOR |
 |---------|---------|
@@ -16,13 +16,54 @@ Write as if it comes from a Product Manager – clear, business-focused, realist
 | Clear expectations ("what is expected", "what do we need") | Literal technical implementation guidance |
 | Describes desired outcomes and business requirements | Step-by-step "tutorial" instructions |
 
-**Note:** Clear product-level expectations are acceptable and encouraged. The violation occurs when the problem statement crosses into technical implementation guidance.
+---
 
-**Examples of violations:**
-- "use useState hook"
-- "create a function called X"
-- "implement using pattern Y"
-- "add a useEffect to fetch data on mount"
+#### ⚠️ AUTOMATIC FAIL TRIGGERS
+
+The presence of **ANY ONE** of the following is an **automatic FAIL** for PM-style voice. Scan the entire problem statement for these violations:
+
+| Category | Examples | Why it's a FAIL |
+|----------|----------|-----------------|
+| **Variable/State Names** | `isFlipped`, `isLoading`, `setCount`, `userData`, `handleClick` | Prescribes internal naming |
+| **Boolean/Conditional Logic** | "When isFlipped is true...", "If X then Y", "When false, show Z" | Prescribes implementation logic |
+| **CSS Class Names** | "append `flipped` to className", "add class `active`", "remove `hidden` class" | Prescribes styling implementation |
+| **Specific File Paths** | "in FlashCard/index.tsx", "Update src/components/X.ts", "modify file Y" | Prescribes code location |
+| **Function/Method Names** | "create a function called X", "implement handleSubmit", "call fetchData()" | Prescribes function design |
+| **React/Framework Hooks** | `useState`, `useEffect`, `useMemo`, `useCallback`, `useContext`, `useReducer` | Prescribes state management approach |
+| **Type/Interface Definitions** | "Create a type with: id (number), name (string)", "interface should have X, Y, Z" | Prescribes data modeling |
+| **DOM Manipulation** | "append X to div", "update innerHTML", "set textContent to Y" | Prescribes DOM approach |
+| **Component Architecture** | "The application has two components: X and Y where functionality should be implemented" | Prescribes component structure |
+| **Implementation Steps** | "Step 1: Update X, Step 2: Add Y to Z", numbered implementation instructions | Tutorial-style guidance |
+| **String/Value Literals** | "'' is appended", "show 'Error' message", "display 'Loading...'" | Prescribes exact values |
+| **Data Structure Details** | "store in an array", "use a Map/Set", "create an object with keys X, Y" | Prescribes data structures |
+
+---
+
+#### ✅ What IS Acceptable (PM-Style)
+
+These are acceptable because they describe **outcomes**, not **implementation**:
+
+| Acceptable | Why |
+|------------|-----|
+| "Users can flip a card to see the answer" | Describes user outcome, not how to implement |
+| "The card should show question on front, answer on back" | Describes visual requirement |
+| "Clicking a card reveals the other side" | Describes interaction behavior |
+| "Cards can be shuffled to appear in random order" | Describes feature outcome |
+| "Ensure shuffled order differs from original" | Describes acceptance criteria |
+
+---
+
+#### ❌ What is NOT Acceptable (Technical Hand-Holding)
+
+These are violations because they prescribe **how to implement**:
+
+| Violation | Why it Fails |
+|-----------|--------------|
+| "Update the isFlipped constant to a state variable" | Prescribes variable name AND implementation approach |
+| "When isFlipped is true, flipped is appended to divs with class flashcard-content" | Prescribes boolean logic, CSS class, and DOM manipulation |
+| "Create a type for FlashCard with properties: id (number), question (string)" | Prescribes type name and structure |
+| "in FlashCard/index.tsx" | Prescribes file location |
+| "The application has two components: FlashCardDeck.tsx and FlashCard.tsx" | Prescribes component architecture |
 
 ---
 
