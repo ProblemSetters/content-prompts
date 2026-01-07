@@ -12,96 +12,175 @@ You will receive a HackerRank question containing:
 
 ## Your Task
 
-Analyze the question using the evaluation criteria below and generate a plain text report. Your review must be **HIGHLY CRITICAL** - focus on identifying concerns, gaps, and areas for improvement rather than praising strengths. Scoring should be strict and demanding.
+Analyze the question using the **checklist-based scoring system** below. Each category has specific checkpoints that are evaluated as PASS (✓) or FAIL (✗). The final score is calculated mathematically based on checkpoint adherence.
+
+---
+
+## Scoring Methodology
+
+### How Scoring Works
+
+1. **Evaluate each checkpoint** as PASS (✓) or FAIL (✗)
+2. **Calculate raw score**: `Checkpoints Passed / Total Checkpoints`
+3. **Normalize to /5**: `Raw Score × 5`
+4. **Round to 1 decimal place**
+
+**Formula:** `Score = (Passed / Total) × 5`
+
+**Example:** If 8 out of 10 checkpoints pass → `(8/10) × 5 = 4.0/5`
 
 ---
 
 ## Evaluation Criteria
 
-### 1. PROBLEM STATEMENT QUALITY (Score: X/5)
+### 1. PROBLEM STATEMENT QUALITY
 
-Evaluate against these standards:
+**Reference Guidelines:**
 
 {{IMPORT:guidelines/problem-statement.md}}
 
-**Required in your report:**
-- Score with justification (in context of this specific problem statement)
-- Assessment of formatting quality (use of bullet points, paragraph size, readability)
-- Specific references to problematic sections (quote them)
-- List of concerns found (including formatting issues like bloated paragraphs)
-- Brief suggestions for improvement
+**Scoring Checkpoints (10 total):**
+
+| # | Checkpoint | Criteria | Pass/Fail |
+|---|------------|----------|-----------|
+| 1 | **Business Context Present** | Has a business context section at the beginning | ✓/✗ |
+| 2 | **Context Length** | Business context is ≤3 sentences (not bloated) | ✓/✗ |
+| 3 | **Requirements Section Present** | Has a clearly labeled Product Requirements section | ✓/✗ |
+| 4 | **Bullet Point Format** | Requirements use bullet points (`<ul>`/`<li>`), not paragraphs | ✓/✗ |
+| 5 | **Technical Reference Note** | Includes note pointing to `TECHNICAL_CONSIDERATIONS.md` | ✓/✗ |
+| 6 | **PM-Style Voice** | Describes outcomes/what, not implementation/how | ✓/✗ |
+| 7 | **No Technical Hand-Holding** | No function names, hooks, patterns, or implementation steps prescribed | ✓/✗ |
+| 8 | **Open-Ended Scope** | Multiple valid solution approaches are possible | ✓/✗ |
+| 9 | **Good-to-Have Requirements** | Contains optional/stretch requirements beyond core | ✓/✗ |
+| 10 | **HTML Formatting** | Correct wrapper div, style tag present, semantic tags used | ✓/✗ |
+
+**Score Calculation:**
+```
+Problem Statement Score = (Checkpoints Passed / 10) × 5
+```
+
+**Score Interpretation:**
+- **5.0/5**: All 10 checkpoints pass (100%)
+- **4.0/5**: 8 checkpoints pass (80%)
+- **3.0/5**: 6 checkpoints pass (60%)
+- **2.0/5**: 4 checkpoints pass (40%)
+- **1.0/5**: 2 checkpoints pass (20%)
 
 ---
 
-### 2. CONCEPT COVERAGE (Score: X/5)
+### 2. CONCEPT COVERAGE
 
-Evaluate whether the problem statement has adequate scope in terms of concept variety, considering the problem should be solvable in approximately 40-50 minutes:
+**Scoring Checkpoints (5 total):**
 
-#### Concept Variety
-- ✅ **GOOD**: Covers multiple related concepts that work together (e.g., state management + data fetching + UI updates)
-- ✅ **GOOD**: Requires applying different programming concepts to complete the task
-- ❌ **POOR**: Focuses on only one narrow concept or trivial variations of the same concept
+| # | Checkpoint | Criteria | Pass/Fail |
+|---|------------|----------|-----------|
+| 1 | **Concept Count** | Problem covers ≥3 distinct technical concepts | ✓/✗ |
+| 2 | **Concept Cohesion** | Concepts are naturally related (not artificially combined) | ✓/✗ |
+| 3 | **Time Scope** | Achievable in 40-50 minutes (not too narrow or too broad) | ✓/✗ |
+| 4 | **Depth Balance** | Requires reasonable depth without needing expert-level knowledge | ✓/✗ |
+| 5 | **Real-World Relevance** | Reflects actual product development scenarios | ✓/✗ |
 
-#### Appropriate Scope for Time Limit
-- ✅ **GOOD**: Achievable in 40-50 minutes while still testing multiple concepts
-- ❌ **POOR**: Too narrow (solvable in 10 minutes) or too broad (requires 2+ hours)
+**Score Calculation:**
+```
+Concept Coverage Score = (Checkpoints Passed / 5) × 5
+```
 
-#### Depth vs. Breadth Balance
-- ✅ **GOOD**: Requires reasonable depth in a few key concepts rather than superficial coverage of many
-- ❌ **POOR**: Either too shallow (only surface-level understanding) or too deep (requires expert-level knowledge)
+**How to Evaluate Each Checkpoint:**
 
-#### Problem Context Relevance
-- ✅ **GOOD**: Concepts are naturally related and form a cohesive problem
-- ❌ **POOR**: Artificially combines unrelated concepts just to increase variety
+1. **Concept Count**: List all distinct concepts required. Examples: state management, data fetching, form validation, routing, API integration, error handling, caching, pagination, authentication, etc. Must identify ≥3 distinct ones.
 
-**Scoring Guide:**
-- **5/5**: Excellent variety of related concepts, perfectly scoped for 40-50 minutes, good depth
-- **4/5**: Good concept coverage with minor scope or depth issues
-- **3/5**: Adequate concepts but limited variety or questionable time scope
-- **2/5**: Narrow concept coverage or poorly scoped for time limit
-- **1/5**: Trivial single-concept problem or unrealistic scope
+2. **Concept Cohesion**: Concepts should work together naturally. FAIL if concepts feel forced together just to increase variety.
 
-**Required in your report:**
-- Score with justification (in context of this specific problem statement)
-- List of concepts being covered
-- Assessment of scope appropriateness for 40-50 minute time limit
-- Gaps in concept variety
+3. **Time Scope**: 
+   - FAIL if solvable in <20 minutes (too narrow)
+   - FAIL if requires >90 minutes (too broad)
+   - PASS if 40-50 minutes is reasonable
+
+4. **Depth Balance**:
+   - FAIL if only surface-level understanding needed
+   - FAIL if requires expert/niche knowledge
+   - PASS if intermediate-level depth
+
+5. **Real-World Relevance**: Would a developer encounter this type of task in a real job? FAIL if purely academic.
 
 ---
 
-### 3. QUALITY OF TEST CASES (Score: X/5)
+### 3. QUALITY OF TEST CASES
 
-Evaluate the **unit test cases** that are relevant to the given problem statement. **Note:** Ignore any test files in the base code that are not related to the problem statement being evaluated.
+**Reference Guidelines:**
 
 {{IMPORT:guidelines/test-cases.md}}
 
-**Required in your report:**
-- Score with justification (in context of this specific problem statement)
-- Assessment of scenarios covered (happy path, edge cases, errors)
-- Missing test scenarios
-- Test quality issues or best practice violations
-- Overall completeness relative to problem requirements
+**Note:** Only evaluate test files relevant to the problem statement. Ignore unrelated test files.
+
+**Scoring Checkpoints (10 total):**
+
+| # | Checkpoint | Criteria | Pass/Fail |
+|---|------------|----------|-----------|
+| 1 | **Happy Path Coverage** | Tests cover normal/expected usage scenarios | ✓/✗ |
+| 2 | **Edge Case Coverage** | Tests cover boundary conditions and edge cases | ✓/✗ |
+| 3 | **Error Scenario Coverage** | Tests cover error conditions and invalid inputs | ✓/✗ |
+| 4 | **Descriptive Test Names** | Test names clearly explain what is being tested | ✓/✗ |
+| 5 | **Test Independence** | Tests don't share state or depend on each other | ✓/✗ |
+| 6 | **Single Responsibility** | Each test validates one specific behavior | ✓/✗ |
+| 7 | **Proper Async Handling** | Uses waitFor/findBy, no setTimeout or arbitrary delays | ✓/✗ |
+| 8 | **Behavior-Driven** | Tests outcomes, not implementation details | ✓/✗ |
+| 9 | **Adequate Test Count** | Sufficient tests for problem complexity (≥1 per requirement) | ✓/✗ |
+| 10 | **Logical Organization** | Tests grouped logically with describe/context blocks | ✓/✗ |
+
+**Score Calculation:**
+```
+Test Cases Score = (Checkpoints Passed / 10) × 5
+```
+
+**How to Evaluate Key Checkpoints:**
+
+- **Behavior-Driven**: FAIL if tests check function names, internal state, or specific implementation details. PASS if tests check visible outputs and user-facing behavior.
+
+- **Proper Async Handling**: FAIL if you see `setTimeout`, `sleep()`, or hardcoded delays. PASS if using `waitFor`, `findBy*`, or proper async/await patterns.
+
+- **Test Independence**: FAIL if tests use shared variables that mutate, or if test order matters.
 
 ---
 
-### 4. INTERVIEWER GUIDELINES QUALITY (Score: X/5)
+### 4. INTERVIEWER GUIDELINES QUALITY
 
-Evaluate against the recommended structure:
+**Reference Guidelines:**
 
 {{IMPORT:guidelines/interviewer-guidelines.md}}
 
-**Required in your report:**
-- Score with justification (in context of this specific problem statement)
-- Structure compliance check
-- Issues with ideal solution (if any)
-- Assessment of criteria relevance
-- Quality of follow-up questions
+**Scoring Checkpoints (10 total):**
+
+| # | Checkpoint | Criteria | Pass/Fail |
+|---|------------|----------|-----------|
+| 1 | **Section 1 Present** | "Ideal Solution" section exists | ✓/✗ |
+| 2 | **Section 1 Collapsible** | Uses `<details>`/`<summary>` tags | ✓/✗ |
+| 3 | **Section 1 Has Code** | Contains complete code snippets (not just descriptions) | ✓/✗ |
+| 4 | **Code Correctness** | Code snippets are syntactically correct and runnable | ✓/✗ |
+| 5 | **Section 2 Present** | "Evaluation Criteria" section exists | ✓/✗ |
+| 6 | **Section 2 Collapsible** | Uses `<details>`/`<summary>` tags | ✓/✗ |
+| 7 | **Section 2 Complete** | Has all 3 sub-sections: Bare Minimum, Good-to-Have, Red Flags | ✓/✗ |
+| 8 | **Section 3 Present** | "Follow-Up Questions" section exists | ✓/✗ |
+| 9 | **Section 3 Collapsible** | Uses `<details>`/`<summary>` tags | ✓/✗ |
+| 10 | **HTML Formatting** | Correct wrapper, style tag, first section open by default | ✓/✗ |
+
+**Score Calculation:**
+```
+Interviewer Guidelines Score = (Checkpoints Passed / 10) × 5
+```
+
+**Section 2 Sub-section Requirements:**
+- **Bare Minimum**: What constitutes a passing solution (must-haves)
+- **Good-to-Have**: What separates good from great (excellence indicators)
+- **Red Flags**: Common mistakes or anti-patterns to watch for
+
+If ANY of these 3 sub-sections is missing, checkpoint #7 FAILS.
 
 ---
 
 ## Output Format
 
-Generate a plain text report suitable for GitHub Actions workflow logs. Use ASCII characters for formatting (no HTML). Structure the output as follows:
+Generate a plain text report with the **checkpoint evaluation table** for each category. Use ASCII characters for formatting (no HTML).
 
 ```
 ================================================================================
@@ -114,7 +193,7 @@ Generate a plain text report suitable for GitHub Actions workflow logs. Use ASCI
 
   Question Title    : [Extract from problem statement]
   Technology Stack  : [Identified languages/frameworks]
-  Question Type     : [e.g., API Development, Algorithm, System Design]
+  Question Type     : [e.g., API Development, Frontend, Full-Stack]
   Files Provided    : [List key files in base code]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -125,101 +204,135 @@ Generate a plain text report suitable for GitHub Actions workflow logs. Use ASCI
   ║                      OVERALL QUALITY SCORE: X.X/5                         ║
   ╚═══════════════════════════════════════════════════════════════════════════╝
 
-  Category                          Score
-  ─────────────────────────────────────────
-  Problem Statement Quality         X/5
-  Concept Coverage                  X/5
-  Quality of Test Cases             X/5
-  Interviewer Guidelines Quality    X/5
+  Category                          Passed/Total    Score
+  ───────────────────────────────────────────────────────
+  Problem Statement Quality         X/10            X.X/5
+  Concept Coverage                  X/5             X.X/5
+  Quality of Test Cases             X/10            X.X/5
+  Interviewer Guidelines Quality    X/10            X.X/5
+
+  Overall = Average of all 4 scores
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-3. DETAILED REVIEW
+3. DETAILED CHECKPOINT EVALUATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 3.1 PROBLEM STATEMENT QUALITY                                    Score: X/5 │
+│ 3.1 PROBLEM STATEMENT QUALITY                              Score: X.X/5     │
+│                                                            (X/10 passed)    │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-FORMATTING QUALITY:
-[Assessment of use of bullet points vs. paragraphs, readability, structure]
+CHECKPOINT EVALUATION:
+  #   Checkpoint                      Result    Evidence/Reason
+  ─────────────────────────────────────────────────────────────────────────────
+  1   Business Context Present        [✓/✗]    [Brief evidence]
+  2   Context Length ≤3 sentences     [✓/✗]    [Count: X sentences]
+  3   Requirements Section Present    [✓/✗]    [Brief evidence]
+  4   Bullet Point Format             [✓/✗]    [Uses <ul>/<li> or paragraphs]
+  5   Technical Reference Note        [✓/✗]    [Present/Missing]
+  6   PM-Style Voice                  [✓/✗]    [Brief evidence]
+  7   No Technical Hand-Holding       [✓/✗]    [Quote violation if any]
+  8   Open-Ended Scope                [✓/✗]    [Brief evidence]
+  9   Good-to-Have Requirements       [✓/✗]    [Present/Missing]
+  10  HTML Formatting                 [✓/✗]    [Brief evidence]
 
-JUSTIFICATION:
-[Your critical analysis here in context of this specific problem statement]
-
-⚠️  KEY CONCERNS:
-  • [Formatting issues: e.g., bloated paragraphs, lack of bullet points]
-  • [Specific concern with reference]
-  • [Specific concern with reference]
-
-📝 EXAMPLE ISSUE:
-  > "[Quote problematic section from problem statement]"
+FAILED CHECKPOINTS DETAIL:
+  • [#X - Checkpoint Name]: [Detailed explanation with quotes]
 
 💡 RECOMMENDATIONS:
-  • [Specific improvement suggestion for formatting and content]
+  • [Specific fix for each failed checkpoint]
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 3.2 CONCEPT COVERAGE                                             Score: X/5 │
+│ 3.2 CONCEPT COVERAGE                                       Score: X.X/5     │
+│                                                            (X/5 passed)     │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-CONCEPTS BEING COVERED:
-  • [Concept 1]
-  • [Concept 2]
+CONCEPTS IDENTIFIED:
+  1. [Concept 1]
+  2. [Concept 2]
+  3. [Concept 3]
+  ... (list all distinct concepts)
 
-TIME SCOPE ASSESSMENT:
-[Analysis of whether problem is appropriately scoped for 40-50 minutes]
+CHECKPOINT EVALUATION:
+  #   Checkpoint                      Result    Evidence/Reason
+  ─────────────────────────────────────────────────────────────────────────────
+  1   Concept Count ≥3                [✓/✗]    [X concepts identified]
+  2   Concept Cohesion                [✓/✗]    [Naturally related / Forced]
+  3   Time Scope (40-50 min)          [✓/✗]    [Estimated: X minutes]
+  4   Depth Balance                   [✓/✗]    [Too shallow/deep/balanced]
+  5   Real-World Relevance            [✓/✗]    [Brief evidence]
 
-JUSTIFICATION:
-[Your critical analysis in context of this specific problem statement]
-
-⚠️  KEY CONCERNS:
-  • [Limited concept variety]
-  • [Scope issues for time limit]
-  • [Gaps in concept coverage]
+FAILED CHECKPOINTS DETAIL:
+  • [#X - Checkpoint Name]: [Detailed explanation]
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 3.3 QUALITY OF TEST CASES                                        Score: X/5 │
+│ 3.3 QUALITY OF TEST CASES                                  Score: X.X/5     │
+│                                                            (X/10 passed)    │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-UNIT TEST ANALYSIS (for problem-relevant tests only):
-  • Total Relevant Unit Tests: [count]
-  • Scenarios Covered: [happy path / edge cases / error handling]
-  • Best Practices: [assessment]
+TEST FILES EVALUATED:
+  • [test-file-1.test.js] - X tests
+  • [test-file-2.spec.ts] - X tests
+  Total Relevant Tests: X
 
-JUSTIFICATION:
-[Your critical analysis in context of this specific problem statement]
+CHECKPOINT EVALUATION:
+  #   Checkpoint                      Result    Evidence/Reason
+  ─────────────────────────────────────────────────────────────────────────────
+  1   Happy Path Coverage             [✓/✗]    [X happy path tests found]
+  2   Edge Case Coverage              [✓/✗]    [X edge case tests found]
+  3   Error Scenario Coverage         [✓/✗]    [X error tests found]
+  4   Descriptive Test Names          [✓/✗]    [Example: "should..." vs "test1"]
+  5   Test Independence               [✓/✗]    [Shared state found / None]
+  6   Single Responsibility           [✓/✗]    [Brief evidence]
+  7   Proper Async Handling           [✓/✗]    [Uses waitFor / Uses setTimeout]
+  8   Behavior-Driven                 [✓/✗]    [Tests behavior / implementation]
+  9   Adequate Test Count             [✓/✗]    [X tests for X requirements]
+  10  Logical Organization            [✓/✗]    [Uses describe blocks / Flat]
 
-⚠️  KEY CONCERNS:
-  • [Missing test scenarios]
-  • [Test quality issues or best practice violations]
-  • [Inadequate coverage for requirements]
+FAILED CHECKPOINTS DETAIL:
+  • [#X - Checkpoint Name]: [Detailed explanation with code reference]
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ 3.4 INTERVIEWER GUIDELINES QUALITY                               Score: X/5 │
+│ 3.4 INTERVIEWER GUIDELINES QUALITY                         Score: X.X/5     │
+│                                                            (X/10 passed)    │
 └─────────────────────────────────────────────────────────────────────────────┘
 
-STRUCTURE COMPLIANCE:
-  [✓/✗] Part 1: Ideal Solution present with key code snippets
-  [✓/✗] Part 2: Bare Minimum & Good to Have Criteria present
-  [✓/✗] Part 3: Recommended Follow-ups present
+CHECKPOINT EVALUATION:
+  #   Checkpoint                      Result    Evidence/Reason
+  ─────────────────────────────────────────────────────────────────────────────
+  1   Section 1 Present               [✓/✗]    [Ideal Solution found / Missing]
+  2   Section 1 Collapsible           [✓/✗]    [Uses <details> / Not collapsible]
+  3   Section 1 Has Code              [✓/✗]    [Code snippets present / Missing]
+  4   Code Correctness                [✓/✗]    [Syntactically correct / Has errors]
+  5   Section 2 Present               [✓/✗]    [Evaluation Criteria found / Missing]
+  6   Section 2 Collapsible           [✓/✗]    [Uses <details> / Not collapsible]
+  7   Section 2 Complete              [✓/✗]    [All 3 sub-sections / Missing: X]
+  8   Section 3 Present               [✓/✗]    [Follow-Ups found / Missing]
+  9   Section 3 Collapsible           [✓/✗]    [Uses <details> / Not collapsible]
+  10  HTML Formatting                 [✓/✗]    [Correct / Issues: X]
 
-JUSTIFICATION:
-[Your critical analysis in context of this specific problem statement]
-
-⚠️  KEY CONCERNS:
-  • [Missing or inadequate sections]
-  • [Quality issues in ideal solution code snippets]
-  • [Irrelevant criteria]
+FAILED CHECKPOINTS DETAIL:
+  • [#X - Checkpoint Name]: [Detailed explanation]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4. SUMMARY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🚨 CRITICAL ISSUES REQUIRING IMMEDIATE ATTENTION:
-  1. [Most critical issue]
-  2. [Second most critical issue]
+SCORE CALCULATION:
+  Problem Statement:     (X/10) × 5 = X.X
+  Concept Coverage:      (X/5)  × 5 = X.X
+  Test Cases:            (X/10) × 5 = X.X
+  Interviewer Guidelines:(X/10) × 5 = X.X
+  ─────────────────────────────────────
+  Overall Average:       X.X/5
+
+🚨 FAILED CHECKPOINTS REQUIRING ATTENTION (X total):
+  1. [Category] #X: [Checkpoint Name] - [One-line fix description]
+  2. [Category] #X: [Checkpoint Name] - [One-line fix description]
+  ...
 
 OVERALL ASSESSMENT:
-[Final paragraph summarizing the quality and readiness of this question]
+[1-2 sentence summary of quality and what needs to be fixed]
 
 ================================================================================
                               END OF REPORT
@@ -228,39 +341,17 @@ OVERALL ASSESSMENT:
 
 ---
 
-## Critical Review Principles
+## Review Principles
 
-Remember to maintain these principles throughout your review:
+1. **Binary Evaluation**: Each checkpoint is PASS or FAIL. No partial credit.
 
-1. **Be Highly Critical**: Score strictly. A 5/5 should be exceptional and rare.
+2. **Evidence Required**: Every FAIL must have specific evidence (quote, line number, or concrete observation).
 
-2. **Context-Aware Scoring**: All scoring and evaluation must be done in the context of the specific problem statement being reviewed. What works for one problem may not work for another.
+3. **Objective Assessment**: Evaluate against the specific criteria defined for each checkpoint, not subjective opinion.
 
-3. **Focus on Concerns**: Spend 80% of your analysis on problems and gaps, not strengths.
+4. **Mathematical Scoring**: Scores are calculated purely from checkpoint pass/fail counts. No arbitrary deductions.
 
-4. **Provide Evidence**: Always reference specific sections, quote problematic code/text.
-
-5. **Be Specific**: Instead of "poor quality," say "missing input validation on line 23" or "problem statement contains prescriptive steps in paragraph 2."
-
-6. **Use Comparisons**: Compare against the provided guidelines explicitly.
-
-7. **Actionable Feedback**: Every concern should have a clear implication for improvement.
-
-8. **No Sugar-Coating**: If something is poor quality, state it directly.
-
-9. **Prioritize Severity**: Highlight critical issues (security, correctness) over minor style issues.
-
----
-
-## Example Scoring Mindset
-
-- **5/5**: Exceeds all standards, production-ready, exemplary
-- **4/5**: Meets all standards with minor polish needed
-- **3/5**: Meets minimum standards but has notable gaps
-- **2/5**: Falls below standards in multiple areas
-- **1/5**: Unacceptable quality, major overhaul needed
-
-Default to lower scores when in doubt. It's better to be overly critical than to overlook issues.
+5. **Actionable Output**: Each failed checkpoint should have a clear path to remediation.
 
 ---
 
@@ -268,16 +359,11 @@ Default to lower scores when in doubt. It's better to be overly critical than to
 
 Before you output the report, ensure:
 
-- [ ] You've reviewed ALL provided materials (problem statement, guidelines, relevant test files)
-- [ ] Each score has specific justification with references **in context of the specific problem statement**
-- [ ] You've quoted problematic sections where relevant
-- [ ] You've identified gaps, not just what's present
-- [ ] Your concerns are specific and actionable
-- [ ] For test cases: Only evaluated unit tests relevant to the problem statement (ignored unrelated test files)
-- [ ] For concept coverage: Assessed variety and scope appropriateness for 40-50 minute completion time
-- [ ] The output is plain text formatted for workflow logs (no HTML)
-- [ ] Overall score is calculated as the average of all 4 category scores (Problem Statement, Concept Coverage, Test Cases, Interviewer Guidelines)
-- [ ] You've maintained a critical, not complimentary, tone throughout
+- [ ] Every checkpoint has a clear PASS (✓) or FAIL (✗) designation
+- [ ] Every FAIL has specific evidence or reasoning documented
+- [ ] Scores are calculated using the formula: `(Passed / Total) × 5`
+- [ ] Overall score is the average of all 4 category scores
+- [ ] Failed checkpoints are summarized with actionable fixes
+- [ ] Report uses plain text format (no HTML)
 
 Generate the complete plain text report now.
-
